@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
 
-import FormTooltipRenderer from '../renderers/FormTooltipRenderer';
+import FormTooltipRenderer from '../renderers/FormTooltip/FormTooltipRenderer';
 import { IFieldDefinition } from '../interfaces/IFieldDefinition';
 
 export interface IFormTextFieldProps{
@@ -37,7 +37,7 @@ export default class FormTextField extends React.Component<IFormTextFieldProps, 
             disabled: _d.disabled   || false,
             errorMessage: _e        || "",
             label: _d.label         || (_d.name || ""),
-            multiline: _d.multiline || false,
+            multiline: _d.multi || false,
             name: _d.name           || "",
             ref: _d.name            || "",
             required: _d.required   || false,

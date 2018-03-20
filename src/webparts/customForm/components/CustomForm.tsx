@@ -3,25 +3,29 @@ import styles from './CustomForm.module.scss';
 import { ICustomFormProps } from './ICustomFormProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 
+import FormFooter from './renderers/FormFooter/FormFooterRenderer';
 import MappedElement from './functions/MappedElement';
 import FormTextField from './inputs/FormTextField';
 import { IFieldDefinition } from './interfaces/IFieldDefinition';
 import { EFieldType } from './interfaces/EFieldType';
 
-export default class CustomForm extends React.Component<ICustomFormProps, {definition: any}> {
+export default class CustomForm extends React.Component<ICustomFormProps, {definition: any, name: string}> {
 
   constructor(props){
     super(props);
     console.log(props.definition)
+
     this.state = {
-      definition: props.definition
+      definition: props.definition,
+      name: props.name
     }
   }
 
   public componentWillReceiveProps(nextProps){
-    if(this.state.definition !== nextProps.definition){
+    if(this.state.definition !== nextProps.definition || this.state.name !== nextProps.name){
       this.setState({
-        definition: nextProps.definition
+        definition: nextProps.definition,
+        name: nextProps.name
       });
     }
   }
@@ -40,19 +44,24 @@ export default class CustomForm extends React.Component<ICustomFormProps, {defin
       console.log(e);
     }
 
-    let _test: IFieldDefinition = {
-      name: "Test",
-      label: "Test Input",
-      type: EFieldType.textfield,
-      required: false,
-      tooltip: "Mm, hover over me..."
-    }
-
     return (
       <div className={ styles.customForm }>
-        <p>G'day! This is where your custom form will go - head over to the web part settings to get it set up!</p>
-        <FormTextField fieldDefinition={ _test } onChanged={ this._handleChange } />
-        { _d && _d.fields ? _d.fields.map((_field) => <MappedElement definition={ _field } />) : "" } 
+      {
+        // If there is no definition display this message
+        !_d && ( <p>G'day! This is where your custom form will go - head over to the web part settings to get it set up!</p> )
+      }{
+        // Form title -- add functionality to change colours/style later 
+        this.state.name && (
+          <h2>{ this.state.name }</h2>
+        )
+      }{
+        // Fields - iterate over the 'fields' node in the definition and map to supported fields
+        _d && _d.fields && (
+          _d.fields.map((_field) => <MappedElement definition={ _field } />)
+        )
+      }{
+        ( <FormFooter /> )
+      }
       </div>
     );
   }

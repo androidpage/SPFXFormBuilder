@@ -3,6 +3,8 @@ import * as React from 'react';
 import { EFieldType } from '../interfaces/EFieldType';
 import { IFieldDefinition } from '../interfaces/IFieldDefinition';
 import FormTextField from '../inputs/FormTextField';
+import FormDropdown from '../inputs/FormDropdown';
+import FormChoiceGroup from '../inputs/FormChoiceGroup';
 
 export interface IMappedElementProps{
     definition: any;
@@ -26,13 +28,22 @@ export default class MappedElement extends React.Component<IMappedElementProps, 
         let _d = this.state.definition as IFieldDefinition
         console.log(_t);
 
-        switch(_t){
+        switch(_t.toLowerCase()){
+            case 'tf':
             case 'textfield':{
-                console.log("T")
-                return (<FormTextField fieldDefinition={ _d } onChanged={ (x) => console.log(x)} />)
+                return (<FormTextField fieldDefinition={ _d } onChanged={ (x) => console.log(x)} />);
             }
+            case 'dd':
+            case 'dropdown':{
+                return (<FormDropdown fieldDefinition={ _d } onChanged={ (x) => console.log(x)} />);
+            }
+            case 'ch':
+            case 'choice':{
+                return (<FormChoiceGroup fieldDefinition={ _d } onChanged= {(x) => console.log(x)} />);
+            }
+            case '':
             default:{
-                return(<span>Element type not found</span>)
+                return (<span>Element type not found</span>)
             }
         }
     }
