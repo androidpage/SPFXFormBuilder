@@ -12,16 +12,18 @@ import CustomForm from './components/CustomForm';
 import { ICustomFormProps } from './components/ICustomFormProps';
 
 export interface ICustomFormWebPartProps {
-  description: string;
+  formName: string;
+  formDefinition: JSON;
 }
 
 export default class CustomFormWebPart extends BaseClientSideWebPart<ICustomFormWebPartProps> {
 
   public render(): void {
-    const element: React.ReactElement<ICustomFormProps > = React.createElement(
+    const element: React.ReactElement<ICustomFormProps> = React.createElement(
       CustomForm,
       {
-        description: this.properties.description
+        name: this.properties.formName,
+        definition: this.properties.formDefinition
       }
     );
 
@@ -43,8 +45,12 @@ export default class CustomFormWebPart extends BaseClientSideWebPart<ICustomForm
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneTextField('formName', {
+                  label: strings.FormNameFieldLabel
+                }),
+                PropertyPaneTextField('formDefinition', {
+                  label: strings.FormDefinitionFieldLabel,
+                  multiline: true
                 })
               ]
             }

@@ -1,3 +1,4 @@
 export interface ICustomFormProps {
-  description: string;
+  name: string;
+  definition: string;
 }

@@ -1,7 +1,8 @@
 declare interface ICustomFormWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
-  DescriptionFieldLabel: string;
+  FormNameFieldLabel: string;
+  FormDefinitionFieldLabel: string;
 }
 
 declare module 'CustomFormWebPartStrings' {

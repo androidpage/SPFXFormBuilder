@@ -1,6 +1,7 @@
 define([], function() {
   return {
-    "PropertyPaneDescription": "Description",
+    "FormNameFieldLabel": "Form Name",
+    "FormDefinitionFieldLabel": "Form Definition",
     "BasicGroupName": "Group Name",
     "DescriptionFieldLabel": "Description Field"
   }
