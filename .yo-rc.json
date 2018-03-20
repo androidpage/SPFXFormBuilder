@@ -1,0 +1,8 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.4.1",
+    "libraryName": "spfx-form-builder",
+    "libraryId": "cf2818f4-af80-4303-ad6b-84964d129a8b",
+    "environment": "spo"
+  }
+}

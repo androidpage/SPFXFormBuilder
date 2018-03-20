@@ -1,0 +1,18 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "custom-form-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/customForm/CustomFormWebPart.js",
+          "manifest": "./src/webparts/customForm/CustomFormWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CustomFormWebPartStrings": "lib/webparts/customForm/loc/{locale}.js"
+  }
+}
