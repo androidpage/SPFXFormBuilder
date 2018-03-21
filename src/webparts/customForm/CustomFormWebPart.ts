@@ -4,8 +4,10 @@ import { Version } from '@microsoft/sp-core-library';
 import {
   BaseClientSideWebPart,
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneTextField,
+  PropertyPaneButton
 } from '@microsoft/sp-webpart-base';
+import { Panel, PanelType, IPanelProps } from 'office-ui-fabric-react/lib/Panel';
 
 import * as strings from 'CustomFormWebPartStrings';
 import CustomForm from './components/CustomForm';
@@ -19,6 +21,14 @@ export interface ICustomFormWebPartProps {
 export default class CustomFormWebPart extends BaseClientSideWebPart<ICustomFormWebPartProps> {
 
   public render(): void {
+
+    const editor: React.ReactElement<IPanelProps> = React.createElement(
+      Panel,
+      {
+        isOpen: false,
+        type: PanelType.large
+      }
+    )
     const element: React.ReactElement<ICustomFormProps> = React.createElement(
       CustomForm,
       {
@@ -26,12 +36,22 @@ export default class CustomFormWebPart extends BaseClientSideWebPart<ICustomForm
         definition: this.properties.formDefinition
       }
     );
+    
+    const container: React.ReactElement<any> = React.createElement(
+      "div",
+      {},
+      [editor, element]
+    )
 
-    ReactDom.render(element, this.domElement);
+    ReactDom.render(container, this.domElement);
   }
 
   protected get dataVersion(): Version {
     return Version.parse('1.0');
+  }
+
+  private _openCodeEditor(){
+    console.log("Clicked");
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
@@ -51,6 +71,10 @@ export default class CustomFormWebPart extends BaseClientSideWebPart<ICustomForm
                 PropertyPaneTextField('formDefinition', {
                   label: strings.FormDefinitionFieldLabel,
                   multiline: true
+                }),
+                PropertyPaneButton('openCodeEditor', {
+                  text: "Open Code Editor",
+                  onClick: this._openCodeEditor
                 })
               ]
             }

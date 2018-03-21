@@ -9,11 +9,11 @@ export interface IFormChoiceGroupProps{
     value?: string;
     onChanged: any;
 }
+
 export interface IFormChoiceGroupState{
     disabled: boolean;
     errorMessage?: string;
     label: string;
-    multiSelect: boolean;
     name: string;
     options: any;
     placeHolder: string;
@@ -28,7 +28,7 @@ export default class FormChoiceGroup extends React.Component<IFormChoiceGroupPro
     constructor(props){
         super(props);
 
-        let  _d = props.fieldDefinition;
+        let _d = props.fieldDefinition;
         let _e = props.errorMessage;
         let _v = props.value;
 
@@ -36,7 +36,6 @@ export default class FormChoiceGroup extends React.Component<IFormChoiceGroupPro
             disabled: _d.disabled       || false,
             errorMessage: _e            || "",
             label: _d.label             || (_d.name || ""),
-            multiSelect: _d.multi       || false,
             name: _d.name               || "",
             options: _d.options         || [{ key: "xx", text: "ERROR: Options Not Found."}],
             placeHolder: _d.placeholder || "Please select a value",
