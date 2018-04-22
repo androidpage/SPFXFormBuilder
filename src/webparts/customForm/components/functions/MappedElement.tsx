@@ -34,7 +34,7 @@ export default class MappedElement extends React.Component<IMappedElementProps, 
                 return (
                     <FormTextField 
                         fieldDefinition={ _d } 
-                        onChanged={ this.state.onChange.bind(this) }
+                        onChanged={ this.state.onChange.bind(this, _d) }
                     />
                 );
             }

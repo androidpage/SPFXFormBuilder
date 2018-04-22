@@ -1,0 +1,15 @@
+.initTable{
+    width: 100%;
+    border: 1px solid grey;
+    text-align: left;
+    border-collapse: collapse;
+    th{
+        background-color: #AFAFAF;
+        padding: 4px;
+    }
+
+    td{
+        border: 1px solid grey;
+        padding: 4px;
+    }
+}
