@@ -28,7 +28,6 @@ export default class IFormTooltipRenderer extends React.Component<IFormTooltipRe
 
     public render(): React.ReactElement<IFormTooltipRendererProps>{
         let _s = this.state;
-        console.log(_s);
         return(
             <div>
                 <Label className={ _s.required ? "is-required" : "" }>

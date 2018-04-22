@@ -1,4 +1,5 @@
-import { EFieldType } from "./EFieldType";
+import { EFieldType } from './EFieldType';
+import {  IFieldValidator } from './IFieldValidator';
 
 export interface IFieldDefinition{
     name: string;
@@ -8,5 +9,5 @@ export interface IFieldDefinition{
     required?: boolean;
     multiSelect?: boolean;
     multiLine?: boolean;
-    validator?: RegExp;
+    validators?: IFieldValidator[];
 }

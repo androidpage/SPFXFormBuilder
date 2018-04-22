@@ -8,6 +8,7 @@ import FormChoiceGroup from '../inputs/FormChoiceGroup';
 
 export interface IMappedElementProps{
     definition: any;
+    onChange: any;
 }
 
 export interface IMappedElementState extends IMappedElementProps{
@@ -18,7 +19,6 @@ export default class MappedElement extends React.Component<IMappedElementProps, 
 
     constructor(props){
         super(props);
-
         this.state = props;
     }
     
@@ -31,19 +31,36 @@ export default class MappedElement extends React.Component<IMappedElementProps, 
         switch(_t.toLowerCase()){
             case 'tf':
             case 'textfield':{
-                return (<FormTextField fieldDefinition={ _d } onChanged={ (x) => console.log(x)} />);
+                return (
+                    <FormTextField 
+                        fieldDefinition={ _d } 
+                        onChanged={ this.state.onChange.bind(this) }
+                    />
+                );
             }
             case 'dd':
             case 'dropdown':{
-                return (<FormDropdown fieldDefinition={ _d } onChanged={ (x) => console.log(x)} />);
+                return (
+                    <FormDropdown 
+                        fieldDefinition={ _d } 
+                        onChanged={ (x) => console.log(x) } 
+                    />
+                );
             }
             case 'ch':
             case 'choice':{
-                return (<FormChoiceGroup fieldDefinition={ _d } onChanged= {(x) => console.log(x)} />);
+                return (
+                    <FormChoiceGroup 
+                        fieldDefinition={ _d } 
+                        onChanged= { (x) => console.log(x) } 
+                    />
+                );
             }
             case '':
             default:{
-                return (<span>Element type not found</span>)
+                return (
+                    <span>Element type not found</span>
+                );
             }
         }
     }

@@ -9,7 +9,12 @@ import FormTextField from './inputs/FormTextField';
 import { IFieldDefinition } from './interfaces/IFieldDefinition';
 import { EFieldType } from './interfaces/EFieldType';
 
-export default class CustomForm extends React.Component<ICustomFormProps, {definition: any, name: string}> {
+export interface ICustomFormState{
+  definition: any;
+  name: string;
+}
+
+export default class CustomForm extends React.Component<ICustomFormProps, ICustomFormState> {
 
   constructor(props){
     super(props);
@@ -32,6 +37,7 @@ export default class CustomForm extends React.Component<ICustomFormProps, {defin
 
   private _handleChange(value){
     console.log(value);
+    
   }
 
   public render(): React.ReactElement<ICustomFormProps> {
@@ -57,7 +63,7 @@ export default class CustomForm extends React.Component<ICustomFormProps, {defin
       }{
         // Fields - iterate over the 'fields' node in the definition and map to supported fields
         _d && _d.fields && (
-          _d.fields.map((_field) => <MappedElement definition={ _field } />)
+          _d.fields.map((_field) => <MappedElement definition={ _field } onChange={ this._handleChange } />)
         )
       }{
         ( <FormFooter /> )
