@@ -84,5 +84,5 @@ gulp package-solution --ship
 ```
 
 * Upload to SharePoint
-    * Upoload the sharepoint/solution/SPFXFormBuilder.sppkg to your sharepoint app catalog
+    * Upoload the sharepoint/solution/spfx-form-builder.sppkg to your sharepoint app catalog
     * Deploy and use.
