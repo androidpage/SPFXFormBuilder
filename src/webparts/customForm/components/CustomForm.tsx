@@ -25,7 +25,7 @@ export interface ICustomFormState{
   cancelDialogIsHidden: boolean;
 }
 
-export default class CustomForm extends React.Component<ICustomFormProps, ICustomFormState> {
+export default class CustomForm extends React.Component<ICustomFormProps, ICustomFormState>{
 
   constructor(props){
     super(props);

@@ -102,6 +102,11 @@ export default class CustomFormWebPart extends BaseClientSideWebPart<ICustomForm
     this.render();
   }
 
+  public onPropertyPaneConfigurationComplete(){
+    // turn init mode off again when property pane is closed
+    update(this.properties, "initIsOpen", () => { return false });
+  }
+
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
       pages: [
