@@ -20,7 +20,7 @@
     "description": { "default": "Form builder to create custom forms and list structures in SharePoint" },
     "officeFabricIconFontName": "TextDocument",
     "properties": {
-      "formName":"Form \"Name",
+      "formName":"Form Name",
       "formDefinition": "{\"title\":\"Test Form\",\"destinationList\":\"FormbuilderTest\",\"fields\":[{\"type\":\"textfield\",\"name\":\"single\",\"label\":\"Single Line Test Field\",\"tooltip\":\"Extra information about this field would go here\",\"validators\":[{\"validator\":\"^.{1,100}$\",\"validatorError\":\"Please limit this field to 100 characters or less\"},{\"validator\":\"^[A-z ]+$\",\"validatorError\":\"This field can only contain letters\"}]},{\"type\":\"textfield\",\"name\":\"abcd\",\"label\":\"Multiline Text Field\",\"required\":true,\"multi\":true},{\"type\":\"dropdown\",\"name\":\"TestDropdown\",\"label\":\"Dropdown\",\"multi\":true,\"options\":[{\"key\":\"1\",\"text\":\"Option 1\"}]},{\"type\":\"ch\",\"name\":\"choice\",\"label\":\"Choice Group\",\"options\":[{\"key\":\"1\",\"text\":\"Choice 1\"},{\"key\":\"2\",\"text\":\"Choice 2\"}]}]}"
     }
   }]

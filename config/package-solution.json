@@ -3,7 +3,7 @@
   "solution": {
     "name": "spfx-form-builder",
     "id": "cf2818f4-af80-4303-ad6b-84964d129a8b",
-    "version": "1.5.0.0",
+    "version": "1.5.1.0",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true
   },

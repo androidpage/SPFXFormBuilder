@@ -1,0 +1,196 @@
+{
+  "name": "Tender Submission Approval Form",
+  "description": "This form is to be used for registering all proposed submissions for funding over $20,000 from external sources (including tenders, submissions Philanthropic Bodies, local government and community funds). The Deputy CEO (Director of Innovation and Business Development) may approve all submissions for less than $150,000. \n The Quality and Research Committee of the Board assesses all submissions and makes recommendations to the Board. The Board notes all proposals under $150,000 and approves or declines all proposals over $150,000.",
+  "fields":[
+    {
+      "type": "textField",
+      "name": "title",
+      "label": "Title of Program/Project",
+      "required": false
+    },{
+      "type": "textField",
+      "name": "service",
+      "label": "Service the project will/is located"
+    },{
+      "type": "textField",
+      "name": "aims",
+      "label": "Statement of Aims/Project Description"
+    },{
+      "type": "dropdown",
+      "name": "typeOfSubmission",
+      "label": "Type of Submission",
+      "dropdownOptions": [{
+        "option": "Department Invitation"
+      },{
+        "option":"Direct Pitch"
+      },{
+        "option":"EOI"
+      },{
+        "option":"Grant"
+      },{
+        "option":"Tender"
+      }]
+    },{
+      "type":"heading",
+      "name":"financialHeading",
+      "label":"Financial - Expenditure and Contract Terms"
+    },{
+      "type": "date",
+      "name": "commencementDate",
+      "label": "Proposed Commencement Date"
+    },{
+      "type": "number",
+      "name": "expenditure",
+      "label": "Annual Expenditure",
+      "prefix":"$"
+    },{
+      "type": "textField",
+      "name": "periodOfOperation",
+      "label": "Period of Operation/Contract"
+    },{
+      "type":"heading",
+      "name":"financialHeading",
+      "label":"Financial - Proposed Funding Sources"
+    },{
+      "type": "number",
+      "name": "governmentFunding",
+      "label": "Government",
+      "prefix":"$"
+    },{
+      "type": "number",
+      "name": "trustFunding",
+      "label": "Trusts/Foundations",
+      "prefix":"$"
+    },{
+      "type": "number",
+      "name": "mfsFunding",
+      "label": "MacKillop Family Services",
+      "prefix":"$"
+    },{
+      "type": "number",
+      "name": "otherFunding",
+      "label": "Other - Contingency",
+      "prefix":"$"
+    },{
+      "type":"choice",
+      "name":"relationshipChoice",
+      "label":"Key Relationships",
+      "choices":[{
+        "choice":"Lead Agency"
+      },{
+        "choice":"Sub-Contractor"
+      },{
+        "choice":"Member of Entity"
+      }]
+    },{
+      "type":"textField",
+      "name": "partnerAgencies",
+      "label":"Partner Agencies"
+    },{
+      "type":"textField",
+      "multiLine":"true",
+      "name":"arrangements",
+      "label":"What are the proposed arrangements eg. Staffing Split?"
+    },{
+      "type":"heading",
+      "name":"oaRelationshipsHeading",
+      "label":"Opportunity Analysis - Relationships"
+    },{
+      "type": "toggle",
+      "name": "oaEstablishedPurchaserRelationship",
+      "label": "Does MacKillop have an established relationship with the purchaser?"
+    },{
+      "type": "toggle",
+      "name": "oaIsMfsIncumbent",
+      "label": "Is MacKillop the incumbent?"
+    },{
+      "type": "toggle",
+      "name": "oaGoodPurchaserTrackRecord",
+      "label": "Does MacKillop currently have a good track record with the purchaser?"
+    },{
+      "type": "toggle",
+      "name": "oaMfsPositionedAhead",
+      "label": "Is MacKillop positioned ahead of competitors for this opportunity?"
+    },{
+      "type":"heading",
+      "name":"oaCapacityHeading",
+      "label":"Opportunity Analysis - Capacity and Capability"
+    },{
+      "type": "toggle",
+      "name": "oaMfsCurrentService",
+      "label": "Does MacKillop currently provide this type of service?"
+    },{
+      "type": "toggle",
+      "name": "oaMfsServiceCapability",
+      "label": "Does MacKillop have the capability to provide the service?"
+    },{
+      "type": "toggle",
+      "name": "oaMfsCapacityToExpand",
+      "label": "Does MacKillop have the capacity to expand to meet the new requirements?"
+    },{
+      "type": "toggle",
+      "name": "oaMfsCanMeetRequirementsInTimeframe",
+      "label": "Can MacKillop meet these requirements within the resources of the tender?"
+    },{
+      "type":"heading",
+      "name":"oaThirdPartyHeading",
+      "label":"Opportunity Analysis - Third Party Issues"
+    },{
+      "type": "toggle",
+      "name": "oaMfsUtiliseThirdPartyService",
+      "label": "Does MacKillop need to utilise third party relationships to deliver the service?"
+    },{
+      "type": "toggle",
+      "name": "oaMfsHasExistingMou",
+      "label": "Does MacKillop have an existing MOU or arrangements with the third party?"
+    },{
+      "type": "toggle",
+      "name": "oaMfsCanEstablishNewMou",
+      "label": "Can an MOU be established in the required timeframe?"
+    },{
+      "type":"heading",
+      "name":"oaStrategicFitHeading",
+      "label":"Opportunity Analysis - Strategic Fit"
+    },{
+      "type": "toggle",
+      "name": "oaStrategicFit",
+      "label": "Does the contract fit with MacKillop’s strategic intent and mission?"
+    },{
+      "type":"heading",
+      "name":"oaRequirementsHeading",
+      "label":"Opportunity Analysis - Requirement Questions"
+    },{
+      "type": "toggle",
+      "name": "oaRequirementHighScoringResponse",
+      "label": "Can MacKillop achieve a high scoring response in the required time time?"
+    }
+    ,{
+      "type": "toggle",
+      "name": "oaRequirementAvailableResources",
+      "label": "Does MacKillop have the available resources to complete a quality response?"
+    }
+    ,{
+      "type": "toggle",
+      "name": "oaRequirementComplianceLevel",
+      "label": "Is MacKillop’s level of compliance to the requirements high?"
+    }
+    ,{
+      "type": "toggle",
+      "name": "oaRequirementServiceDeliveryModel",
+      "label": "Can the requirements be delivered within the framework of MacKillop’s current Service Delivery Model?"
+    },{
+      "type":"heading",
+      "name":"oaRiskAnalysis",
+      "label":"Opportunity Analysis - Risk Analysis"
+    },{
+      "type": "toggle",
+      "name": "oaRisk",
+      "label": "Are there any risks that should be considered on submitting for this tender?"
+    },{
+      "type":"textField",
+      "name":"comments",
+      "multiline": true,
+      "label":"Comments"
+    }
+  ]
+}
