@@ -66,7 +66,7 @@ export default class CustomForm extends React.Component<ICustomFormProps, ICusto
 
   @autobind
   private _changeHandler(fieldDefinition, value){
-    let _f = {};
+    let _f = this.state.newFormValues || {};
     let _fieldName = fieldDefinition.name;
 
     _f[_fieldName] = value;

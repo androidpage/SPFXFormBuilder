@@ -14,6 +14,7 @@ import { Panel, PanelType, IPanelProps } from 'office-ui-fabric-react/lib/Panel'
 import { Modal } from 'office-ui-fabric-react/lib/Modal';
 import { PrimaryButton, DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import AceEditor,{ EditorProps } from 'react-ace';
+import pnp from 'sp-pnp-js';
 
 import * as strings from 'CustomFormWebPartStrings';
 import CustomForm from './components/CustomForm';
@@ -33,6 +34,18 @@ export interface ICustomFormWebPartProps {
 }
 
 export default class CustomFormWebPart extends BaseClientSideWebPart<ICustomFormWebPartProps> {
+
+  protected onInit(){
+    return super.onInit().then(() => {
+      console.log(this.context);
+        pnp.setup({
+            sp: {
+                baseUrl: this.context.pageContext.web.absoluteUrl
+            }
+        });
+    });
+  }
+
   public render(): void {
     const editor: React.ReactElement<IPanelProps> = React.createElement(
       Modal,

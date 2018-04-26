@@ -26,14 +26,13 @@ export default class MappedElement extends React.Component<IMappedElementProps, 
 
         let _t = this.state.definition.type
         let _d = this.state.definition as IFieldDefinition
-        console.log(_t);
 
         switch(_t.toLowerCase()){
             case 'tf':
             case 'textfield':{
                 return (
                     <FormTextField 
-                        fieldDefinition={ _d } 
+                        fieldDefinition={ _d }
                         onChanged={ this.state.onChange.bind(this, _d) }
                     />
                 );
@@ -42,7 +41,7 @@ export default class MappedElement extends React.Component<IMappedElementProps, 
             case 'dropdown':{
                 return (
                     <FormDropdown 
-                        fieldDefinition={ _d } 
+                        fieldDefinition={ _d }
                         onChanged={ (x) => console.log(x) } 
                     />
                 );
@@ -51,7 +50,7 @@ export default class MappedElement extends React.Component<IMappedElementProps, 
             case 'choice':{
                 return (
                     <FormChoiceGroup 
-                        fieldDefinition={ _d } 
+                        fieldDefinition={ _d }
                         onChanged= { (x) => console.log(x) } 
                     />
                 );

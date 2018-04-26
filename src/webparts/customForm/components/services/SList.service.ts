@@ -20,10 +20,13 @@ export class SList{
     public async ensureList(listName){
         // Add functionality to add custom descriptions, templates etc.
         try{
-            let _res = await pnp.sp.web.lists.ensure(listName, "Autocreated by FormBuilder")
+            let _resList = await pnp.sp.web.lists.ensure(listName, "Autocreated by FormBuilder");
+            let _resTitle = await _resList.list.fields.getByInternalNameOrTitle("Title").update({
+                Required: "FALSE"
+            })
             return{
                 message: "Success",
-                data: _res
+                data: _resList
             }
         }
         catch(e){

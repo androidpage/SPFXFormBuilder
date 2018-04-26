@@ -23,7 +23,7 @@ export default class InitForm extends React.Component<IInitFormProps, IInitFormS
     public async componentDidMount(){
         let _d = JSON.parse(this.state.definition);
         let _exists = this._checkListExists(_d.destinationList);
-
+        
         if(_exists){
             let _fields = _d.fields.map((field) => {
                 return this._checkListFieldExists(_d.destinationList, field);
