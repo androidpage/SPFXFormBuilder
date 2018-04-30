@@ -6,7 +6,7 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import { autobind } from 'office-ui-fabric-react/lib/Utilities';
 import { Dialog, DialogType, DialogFooter, IDialogContentStyles } from 'office-ui-fabric-react/lib/Dialog';
 import { DefaultButton, PrimaryButton } from 'office-ui-fabric-react/lib/Button';
-
+import { Pivot, PivotItem, PivotLinkFormat } from 'office-ui-fabric-react/lib/Pivot';
 
 import FormFooter from './renderers/FormFooter/FormFooterRenderer';
 import MappedElement from './functions/MappedElement';
@@ -147,12 +147,33 @@ export default class CustomForm extends React.Component<ICustomFormProps, ICusto
         !_d && ( <p>G'day! This is where your custom form will go - head over to the web part settings to get it set up!</p> )
       }{
         _d.error && (<p>{ _d.error }</p>)
-      }{
-        // Form title -- add functionality to change colours/style later 
-        (this.state.name || _d.title) && (
-          <h2>{ this.state.name || _d.title }</h2>
-        )
-      }{
+      }
+      <div className={ styles.header }>
+        {
+          // Form title -- add functionality to change colours/style later 
+          (this.state.name || _d.title) && (
+            <h2>{ this.state.name || _d.title }</h2>
+          )
+        }{
+          // Load pivot if form is split into pages
+          _d.pages && (
+            <div>
+              <Pivot linkFormat={ PivotLinkFormat.links }>
+              { _d.pages.map((_page, i) => {
+                return (
+                  <PivotItem linkText={ _page.name || `Page ${i + 1}` } >
+                    <hr />
+                    { _page.title ? (<h3>{ _page.title }</h3>) : ""}
+                    { _page.fields.map((_field) => <MappedElement definition={ _field } onChange={ this._changeHandler } />) }
+                  </PivotItem>
+                )})
+              }
+              </Pivot>
+            </div>
+          )
+        }
+      </div>
+      {
         // Fields - iterate over the 'fields' node in the definition and map to supported fields
         _d && _d.fields && (
           _d.fields.map((_field) => <MappedElement definition={ _field } onChange={ this._changeHandler } />)

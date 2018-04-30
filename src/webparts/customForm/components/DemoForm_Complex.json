@@ -1,0 +1,132 @@
+{
+    "title": "Test Form",
+    "destinationList": "FormbuilderTest",
+    "pages":[{
+        "name":"Section One",
+        "title": "First Section",
+        "fields": [
+            {
+              "type":"html",
+              "element":"p",
+              "value":"Here you could put a description for this section/page. You can use standard HTML elements."
+            },
+            {
+                "type": "textfield",
+                "name": "single",
+                "label": "Single Line Test Field",
+                "tooltip": "Extra information about this field would go here",
+                "validators":[
+                    {
+                        "validator": "^.{1,100}$",
+                        "validatorError": "Please limit this field to 100 characters or less"
+                    },{
+                        "validator": "^[A-z ]+$",
+                        "validatorError": "This field can only contain letters"
+                    }
+                ]
+            },
+            {
+                "type": "textfield",
+                "name": "abcd",
+                "label": "Multiline Text Field",
+                "required": true,
+                "multi": true
+            },
+            {
+                "type": "dropdown",
+                "name": "TestDropdown",
+                "label": "Dropdown",
+                "multi": true,
+                "options": [
+                    {
+                        "key": "1",
+                        "text": "Option 1"
+                    }
+                ]
+            },
+            {
+                "type":"ch",
+                "name":"choice",
+                "label": "Choice Group",
+                "options":[
+                    {
+                        "key":"1",
+                        "text":"Choice 1"
+                    },{
+                        "key":"2",
+                        "text":"Choice 2"
+                    }
+                ]
+            }
+        ]
+    },{
+        "name": "Section Two",
+        "title": "Second Section",
+        "fields": [{
+            "type":"ch",
+                "name":"choice",
+                "label": "Choice Group",
+                "options":[
+                    {
+                        "key":"1",
+                        "text":"Choice 1"
+                    },{
+                        "key":"2",
+                        "text":"Choice 2"
+                    }
+                ]
+        },{
+            "type":"html",
+            "element":"table",
+            "children":[{
+                "type":"html",
+                "element":"tr",
+                "children": [{
+                    "type":"html",
+                    "element":"th",
+                    "value": "Table Test"
+                },{
+                    "type":"html",
+                    "element":"th",
+                    "value": "Table Test"
+                },{
+                    "type":"html",
+                    "element":"th",
+                    "value": "Table Test"
+                }]
+            },{
+                "type": "html",
+                "element":"tr",
+                "children":[{
+                    "type":"html",
+                    "element":"td",
+                    "value":"Table Cell"
+                },{
+                    "type":"html",
+                    "element":"td",
+                    "value":"Table Cell"
+                },{
+                    "type":"html",
+                    "element":"td",
+                    "value":"Table Cell"
+                }]
+            }]
+        },{
+            "type":"html",
+            "element":"p",
+            "children":[{
+                "type":"html",
+                "element":"span",
+                "value":"Testing if "
+            },{
+                "type":"html",
+                "element":"b",
+                "value":"bold"
+            },{
+                "type":"html",
+                "element":"span",
+                "value":" works"
+            }]
+        }]
+    }]
+}

@@ -112,7 +112,7 @@ export default class CustomFormWebPart extends BaseClientSideWebPart<ICustomForm
 
   private _saveCodeEditor(newValue){
     update(this.properties, "formDefinition", () => { return newValue });
-    this.render();
+    //this.render();
   }
 
   public onPropertyPaneConfigurationComplete(){

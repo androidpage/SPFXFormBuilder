@@ -5,6 +5,7 @@ import { IFieldDefinition } from '../interfaces/IFieldDefinition';
 import FormTextField from '../inputs/FormTextField';
 import FormDropdown from '../inputs/FormDropdown';
 import FormChoiceGroup from '../inputs/FormChoiceGroup';
+import CustomHtmlRenderer from '../renderers/CustomHtml/CustomHtmlRenderer';
 
 export interface IMappedElementProps{
     definition: any;
@@ -54,6 +55,11 @@ export default class MappedElement extends React.Component<IMappedElementProps, 
                         onChanged= { (x) => console.log(x) } 
                     />
                 );
+            }
+            case 'html':{
+                return (
+                    <CustomHtmlRenderer definition={ _d } />
+                )
             }
             case '':
             default:{
